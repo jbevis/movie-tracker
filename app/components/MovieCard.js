@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './MovieCard.css';
-
 
 export const MovieCard = ({ title, poster_path, overview, release_date, vote_average, user_id, movie_id, userData, handleAddFave, favorites, handleDeleteFave}) => {
   const favClick = (movieData) => {
@@ -28,7 +26,6 @@ export const MovieCard = ({ title, poster_path, overview, release_date, vote_ave
       body: JSON.stringify({user_id: user_id, movie_id})
     })
     handleDeleteFave({ title, poster_path, overview, release_date, vote_average, movie_id})
-
   }
 
   const clickHandler = (movieData, userData) => {
@@ -50,7 +47,7 @@ export const MovieCard = ({ title, poster_path, overview, release_date, vote_ave
       favoriteClass = 'unfavorited'
     }
     return favoriteClass;
-  };
+  }
 
   return (
     <article  className="movie-card">
@@ -66,10 +63,10 @@ export const MovieCard = ({ title, poster_path, overview, release_date, vote_ave
 }
 
 
-// MovieCard.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   poster_path: PropTypes.string.isRequired,
-//   overview: PropTypes.string.isRequired,
-//   release_date: PropTypes.string.isRequired,
-//   vote_average: PropTypes.number.isRequired,
-// }
+MovieCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  vote_average: PropTypes.number.isRequired,
+}
