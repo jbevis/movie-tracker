@@ -21,16 +21,16 @@ export default class FavoritesGrid extends Component {
         { Object.keys(favorites).map((movie, index) => {
           return (
             <FavoriteCard title={favorites[movie].title}
-                       poster_path={favorites[movie].poster_path}
-                       overview={favorites[movie].overview}
-                       release_date={favorites[movie].release_date}
-                       vote_average={favorites[movie].vote_average}
-                       user_id={userData.id}
-                       movie_id={favorites[movie].movie_id}
-                       updateFavorites={updateFavorites}
-                       handleDeleteFave={handleDeleteFave}
-                       favorites={favorites}
-                       key={index}/>
+                          poster_path={favorites[movie].poster_path}
+                          overview={favorites[movie].overview}
+                          release_date={favorites[movie].release_date}
+                          vote_average={favorites[movie].vote_average}
+                          user_id={userData.id}
+                          movie_id={favorites[movie].movie_id}
+                          updateFavorites={updateFavorites}
+                          handleDeleteFave={handleDeleteFave}
+                          favorites={favorites}
+                          key={index}/>
           )
         }) }
       </section>
