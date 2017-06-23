@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "MovieTracker",
   "engines": {
-    "node": "6.4.0",
+    "node": "6.9.5",
     "npm": "3.10.x"
   },
   "scripts": {
@@ -11,7 +11,7 @@
     "test:watch": "npm test -- --watch",
     "build": "webpack --config ./webpack.config.js",
     "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
-    "start": "node server.js"
+    "start": "npm build && node server.js"
   },
   "keywords": [],
   "author": "Taylor Moore",
