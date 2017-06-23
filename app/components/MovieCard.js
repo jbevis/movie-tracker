@@ -26,6 +26,7 @@ export const MovieCard = ({ title, poster_path, overview, release_date, vote_ave
       body: JSON.stringify({ user_id: user_id, movie_id })
     })
     handleDeleteFave({ title, poster_path, overview, release_date, vote_average, movie_id })
+
   }
 
   const clickHandler = (movieData, userData) => {
@@ -47,7 +48,11 @@ export const MovieCard = ({ title, poster_path, overview, release_date, vote_ave
       favoriteClass = 'unfavorited'
     }
     return favoriteClass;
-  };
+  }
+
+  const styleFromLength = (overview) => {
+    return overview.length > 340 ? 'longOverviewDiv' : 'overviewDiv'
+  }
 
   return (
     <article  className="movie-card">
@@ -55,9 +60,19 @@ export const MovieCard = ({ title, poster_path, overview, release_date, vote_ave
               onClick={()=>{clickHandler({movie_id, user_id, title, poster_path, release_date, vote_average, overview}, userData)}}>
           &#9734;
       </button>
-      <img className="movie-poster"
-           alt={title}
-           src={poster_path} />
+      <span   className='overviewSpan'>
+        <img  className="movie-poster"
+              alt={title}
+              src={poster_path} />
+        <div  className={styleFromLength(overview)}>
+          <h4 className='overviewHeader top'>OVERVIEW</h4>
+          <p  className='overview'>{overview}</p>
+          <h4 className='overviewHeader'>RELEASE DATE</h4>
+          <p  className='overview'>{release_date}</p>
+          <h4 className='overviewHeader'>VOTE AVERAGE</h4>
+          <p  className='overview'>{vote_average}</p>
+        </div>
+      </span>
     </article>
   )
 }
