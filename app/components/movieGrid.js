@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { MovieCard } from './MovieCard';
 
-
 export default class MovieGrid extends Component {
   constructor(props) {
     super(props);
   }
 
-
   render() {
     const { movies, userData, handleAddFave, favorites, handleDeleteFave } = this.props;
+
     if (!this.props.movies) {
       return (
        <h4>Guess theres nothing worth seeing....</h4>
       )
     }
+
     return (
       <section id="movie-grid">
         { Object.keys(this.props.movies).map((movie, index) => {
@@ -30,9 +30,10 @@ export default class MovieGrid extends Component {
                        userData={userData}
                        handleAddFave={this.props.handleAddFave}
                        favorites={favorites}
-                       handleDeleteFave={handleDeleteFave}/>
+                       handleDeleteFave={handleDeleteFave}
+            />
           )
-        }) }
+        })}
       </section>
     )
   }
